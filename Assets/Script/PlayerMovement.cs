@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private LayerMask collisionMask;
     private Vector2 velocity = Vector2.zero;
-    const float gravity = 20;
-    const float standardSpeed = 5;
+    private const float Gravity = 50;
+    public const float StandardSpeed = 5;
+    private const float JumpHeight = 10;
 
+    private bool grounded;
+    
     private void Move()
     {
         var pos = transform.position;
@@ -19,32 +23,65 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        velocity.x = standardSpeed;
+        velocity.x = StandardSpeed;
     }
 
     private void Update()
     {
         AddGravity();
+        SideCollision();
+        CheckGrounded();
+
+        if (grounded)
+            velocity.y = 0;
+        
+        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+            Jump();    
+        
         Move();
+    }
+
+    private void Jump()
+    {
+        velocity.y = JumpHeight;
     }
 
     private void AddGravity()
     {
-        velocity.y -= gravity * Time.deltaTime;
-        if (CheckGrounded())
-            velocity.y = 0;
+        velocity.y -= Gravity * Time.deltaTime;
     }
 
-    private bool CheckGrounded()
+    private void SideCollision()
+    {
+        Vector2 bottomRight = transform.position;
+        bottomRight.x += 0.5f;
+        bottomRight.y -= 0.4f;
+        var topRight = bottomRight;
+        topRight.y += 0.8f;
+
+        for (var i = 0; i < 2; i++)
+        {
+            var info = Physics2D.Raycast(i == 0 ? bottomRight : topRight, Vector2.right,
+                velocity.x * Time.deltaTime, collisionMask);
+
+            if (!info) continue;
+            
+            transform.position = new Vector3(info.point.x - 0.5f, transform.position.y, transform.position.z);
+            velocity.x = 0;
+            return;
+        }
+    }
+
+    private void CheckGrounded()
     {
         Vector2 bottomRight,
             bottomLeft = transform.position;
         bottomLeft.y -= 0.5f;
-        bottomLeft.x -= 0.5f;
+        bottomLeft.x -= 0.4f;
         bottomRight = bottomLeft;
-        bottomRight.x += 1;
+        bottomRight.x += 0.8f;
         
-        Debug.DrawLine(bottomRight, bottomRight + (Vector2.down * velocity.y * Time.deltaTime * -1));
+        Debug.DrawLine(bottomRight, bottomRight + (Vector2.down * velocity.y * Time.deltaTime    ));
 
         for (var i = 0; i < 2; i++)
         {
@@ -56,9 +93,10 @@ public class PlayerMovement : MonoBehaviour
             
             // Move the player down.
             transform.position = new Vector3(transform.position.x, info.point.y + 0.5f, transform.position.z);
-            return true;
+            grounded = true;
+            return;
         }
 
-        return false;
+        grounded = false;
     }
 }
