@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 velocity = Vector2.zero;
     private const float Gravity = 50;
     public const float StandardSpeed = 5;
-    private const float JumpHeight = 10;
+    private const float JumpHeight = 15;
 
     private bool grounded;
     
