@@ -6,34 +6,44 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private LayerMask collisionMask;
-    private Vector2 velocity = Vector2.zero;
+    private Vector2 _velocity = Vector2.zero;
+    private float _wantedSpeed;
+
+    public float WantedSpeed
+    {
+        get { return _wantedSpeed; }
+    }
+
     private const float Gravity = 50;
-    public const float StandardSpeed = 5;
+    private const float StandardSpeed = 5;
     private const float JumpHeight = 15;
+    private const float Acceleration = 20;
+    private const float BoostSpeed = 0.5f;
 
     private bool grounded;
     
     private void Move()
     {
         var pos = transform.position;
-        pos.x += velocity.x * Time.deltaTime;
-        pos.y += velocity.y * Time.deltaTime;
+        pos.x += _velocity.x * Time.deltaTime;
+        pos.y += _velocity.y * Time.deltaTime;
         transform.position = pos;
     }
 
     private void Start()
     {
-        velocity.x = StandardSpeed;
+        _wantedSpeed = StandardSpeed;
     }
 
     private void Update()
     {
+        AddHorizontalVelocity();
         AddGravity();
         SideCollision();
         CheckGrounded();
 
         if (grounded)
-            velocity.y = 0;
+            _velocity.y = 0;
         
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
             Jump();    
@@ -41,14 +51,24 @@ public class PlayerMovement : MonoBehaviour
         Move();
     }
 
+    private void AddHorizontalVelocity()
+    {
+        bool boost = Camera.main.transform.position.x > transform.position.x;
+        
+        _velocity.x += Acceleration * Time.deltaTime;
+        if (boost) _velocity.x += BoostSpeed * Time.deltaTime;
+        if (_velocity.x > WantedSpeed)
+            _velocity.x = boost ? WantedSpeed + BoostSpeed : WantedSpeed;
+    }
+
     private void Jump()
     {
-        velocity.y = JumpHeight;
+        _velocity.y = JumpHeight;
     }
 
     private void AddGravity()
     {
-        velocity.y -= Gravity * Time.deltaTime;
+        _velocity.y -= Gravity * Time.deltaTime;
     }
 
     private void SideCollision()
@@ -62,12 +82,12 @@ public class PlayerMovement : MonoBehaviour
         for (var i = 0; i < 2; i++)
         {
             var info = Physics2D.Raycast(i == 0 ? bottomRight : topRight, Vector2.right,
-                velocity.x * Time.deltaTime, collisionMask);
+                _velocity.x * Time.deltaTime, collisionMask);
 
             if (!info) continue;
             
             transform.position = new Vector3(info.point.x - 0.5f, transform.position.y, transform.position.z);
-            velocity.x = 0;
+            _velocity.x = 0;
             return;
         }
     }
@@ -81,12 +101,12 @@ public class PlayerMovement : MonoBehaviour
         bottomRight = bottomLeft;
         bottomRight.x += 0.8f;
         
-        Debug.DrawLine(bottomRight, bottomRight + (Vector2.down * velocity.y * Time.deltaTime    ));
+        Debug.DrawLine(bottomRight, bottomRight + (Vector2.down * _velocity.y * Time.deltaTime    ));
 
         for (var i = 0; i < 2; i++)
         {
             var info = Physics2D.Raycast(i == 0 ? bottomRight : bottomLeft, Vector2.down,
-                velocity.y * Time.deltaTime * -1,
+                _velocity.y * Time.deltaTime * -1,
                 collisionMask);
             
             if (!info) continue;

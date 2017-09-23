@@ -19,17 +19,6 @@ public class Chunk : MonoBehaviour
         get { return _endPoint; }
     }
 
-
-    private void Start()
-    {
-        
-    }
-
-    private void Update()
-    {
-        
-    }
-
     private void OnDrawGizmos()
     {
         Vector2 pos = _startPoint;
