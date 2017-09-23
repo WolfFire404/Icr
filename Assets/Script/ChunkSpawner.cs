@@ -41,7 +41,6 @@ public class ChunkSpawner : MonoBehaviour
         var chunk = _spawnedChunks.Peek();
         float deletepos = chunk.transform.position.x + (chunk.EndPoint.x) * chunk.BlockSize.x + 
                           (chunk.EndPoint.x - chunk.StartPoint.x) * chunk.BlockSize.x;
-        Debug.Log(deletepos);
         return _playerPosition.position.x > deletepos;
     }
 

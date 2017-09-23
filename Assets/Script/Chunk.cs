@@ -2,12 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Chunk : MonoBehaviour
 {
+    [HideInInspector] public bool expanded = false;
+    
     public readonly Vector2 BlockSize = new Vector2(1f,1f);
     [SerializeField] private Point _startPoint = new Point(0,0);
     [SerializeField] private Point _endPoint = new Point(20, 0);
+    [Range(1,100), SerializeField] private int _weight = 1;
 
     public Point StartPoint
     {
@@ -17,6 +21,11 @@ public class Chunk : MonoBehaviour
     public Point EndPoint
     {
         get { return _endPoint; }
+    }
+
+    public int Weight
+    {
+        get { return _weight; }
     }
 
     private void OnDrawGizmos()
