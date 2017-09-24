@@ -50,6 +50,7 @@ public class ChunkSpawner : MonoBehaviour
         Destroy(_spawnedChunks.Dequeue().gameObject,0);
     }
 
+    //todo: Add weighted random spawning.
     private void SpawnChunk()
     {
         var spawnLocation = _lastChunk == null ? new Vector3(InitialSpawnX, 0) : GetSpawnLocation(_lastChunk);

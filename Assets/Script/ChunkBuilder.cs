@@ -1,15 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditorInternal;
 using UnityEngine;
 
 [ExecuteInEditMode]
 public class ChunkBuilder : MonoBehaviour
 {
     public List<GameObject> Chunks { get; private set; }
+    public List<GameObject> Blocks { get; private set; }
     private ChunkBuilderCurrentInfo _currentEditingChunk;
     public bool InEditMode = false;
+    
     public int LoadedPrefabs { get; private set; }
+    public EditModes EditMode { get; set; }
 
     private void Start()
     {
@@ -17,6 +23,11 @@ public class ChunkBuilder : MonoBehaviour
         {
             ExitEditMode();
         }
+    }
+
+    private void LoadBlocks()
+    {
+        Blocks = Resources.LoadAll<GameObject>("Blocks/").ToList();
     }
     
     public void LoadAllChunks()
@@ -56,6 +67,7 @@ public class ChunkBuilder : MonoBehaviour
         _currentEditingChunk.GoCurrentEditing =
             Instantiate(chunk.gameObject, new Vector3(0, 0, 0), Quaternion.identity);
         _currentEditingChunk.ChunkCurrentEditing = _currentEditingChunk.GoCurrentEditing.GetComponent<Chunk>();
+        LoadBlocks();
         InEditMode = true;
     }
 
@@ -84,8 +96,9 @@ public class ChunkBuilder : MonoBehaviour
         _currentEditingChunk.CurrentChunkIndex = LoadedPrefabs;
 
         prefab.name = "Chunk " + LoadedPrefabs;
-        Chunks.Add(prefab);
         InEditMode = true;
+        ExitEditMode();
+        LoadAllChunks();
     }
 
 
@@ -95,6 +108,21 @@ public class ChunkBuilder : MonoBehaviour
             return;
         
         DestroyImmediate(_currentEditingChunk.GoCurrentEditing);
+    }
+
+    public void PlaceBlockAtPosition(Vector3 mousePosition)
+    {
+        var point = GetPointFromMousePosition(_currentEditingChunk.ChunkCurrentEditing, mousePosition);
+        
+    }
+
+    private static Point GetPointFromMousePosition(Chunk chunk, Vector3 mousePosition)
+    {
+        if (chunk == null) return null;
+        
+        int x = Mathf.FloorToInt(mousePosition.x / chunk.BlockSize.x);
+        int y = Mathf.FloorToInt(mousePosition.y / chunk.BlockSize.y);
+        return new Point(x,y);
     }
     
     /// <summary>
@@ -111,7 +139,7 @@ public class ChunkBuilder : MonoBehaviour
             _currentEditingChunk.Reset();
             DestroyCurrentChunk();
             InEditMode = false;
-            Debug.LogError("An error has occurred. Please try again.");
+            Debug.LogError("An unknown error has occurred. Please try again or request backup.");
             return false;
         }
 
@@ -135,4 +163,11 @@ struct ChunkBuilderCurrentInfo
         GoCurrentEditing = PrefabObject = null;
         CurrentChunkIndex = 0;
     }
+}
+
+public enum EditModes
+{
+    Remove,
+    AddAssets,
+    AddCollision
 }
