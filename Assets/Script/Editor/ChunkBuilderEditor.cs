@@ -2,6 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 using System.Collections;
+using System.Diagnostics;
 
 
 namespace Script.Editor
@@ -91,7 +92,7 @@ namespace Script.Editor
                     break;
                 case EventType.MouseDrag:
                     if (Event.current.button == 2) break;
-                    GUIUtility.hotControl = @event;
+                    MouseDown(cb, @event);
                     break;
             }
         }
@@ -100,17 +101,39 @@ namespace Script.Editor
         {
             if (OutsideSceneView(Event.current.mousePosition)) return;
 
+            Vector3 position;
+            
             switch (Event.current.button)
             {
                     case 0:    // left mouse button - add collider or asset
                         GUIUtility.hotControl = @event;
                         Event.current.Use();
-
-                        var position = ScreenPositionToWorldPoint(Event.current.mousePosition);
-                        cb.PlaceBlockAtPosition(position);
+                        position = ScreenPositionToWorldPoint(Event.current.mousePosition);
+                        
+                        switch (cb.EditMode)
+                        {
+                            case EditModes.AddAssets:
+                                cb.PlaceBlockAtPosition(position);
+                                break;
+                            case EditModes.AddCollision:
+                                cb.PlaceCollisionAtPosition(position);
+                                break;
+                        }
                         break;
                     case 1:    // right mouse button - remove collider or asset
-                        
+                        GUIUtility.hotControl = @event;
+                        Event.current.Use();
+                        position = ScreenPositionToWorldPoint(Event.current.mousePosition);
+
+                        switch (cb.EditMode)
+                        {
+                                case EditModes.AddAssets:
+                                    cb.RemoveBlockAtPosition(position);
+                                    break;
+                                case EditModes.AddCollision:
+                                    cb.RemoveColliderAtPosition(position);
+                                    break;
+                        }
                         break;
                     case 2:
                         break;
@@ -128,9 +151,11 @@ namespace Script.Editor
         {
             if(!SceneView.currentDrawingSceneView.in2DMode)
                 throw new NotSupportedException("Scene needs to be 2D to work. Sorry dude.");
+
+            float pixelh = SceneView.currentDrawingSceneView.camera.pixelHeight;
             
-            Vector3 mousepos = new Vector3(mousePosition.x, mousePosition.y, 0);
-            return SceneView.currentDrawingSceneView.camera.ScreenToWorldPoint(mousePosition);
+            Vector3 mousepos = new Vector3(mousePosition.x, pixelh - mousePosition.y, 0);
+            return SceneView.currentDrawingSceneView.camera.ScreenToWorldPoint(mousepos);
         }
 
         private void DrawEditingGui(ChunkBuilder cb)
@@ -153,7 +178,20 @@ namespace Script.Editor
                 options[i] = cb.Blocks[i].name;
             }
 
-            int selected = EditorGUILayout.Popup(0, options);
+            cb.CurrentSelectedBlock = EditorGUILayout.Popup(cb.CurrentSelectedBlock, options);
+
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("Generate Colliders"))
+            {
+                cb.GenerateColliders();
+            }
+
+            if (GUILayout.Button("Remove Colliders"))
+            {
+                cb.RemoveAllColliders();
+            }
+            
+            GUILayout.EndHorizontal();
         }
     }
 }

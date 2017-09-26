@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Chunk : MonoBehaviour
 {
@@ -12,8 +10,9 @@ public class Chunk : MonoBehaviour
     
     [SerializeField] private Point _startPoint = new Point(0,0);
     [SerializeField] private Point _endPoint = new Point(20, 0);
-    
-    public Dictionary<int, GridPositionInfo> chunkLayout = new Dictionary<int, GridPositionInfo>();
+
+    [SerializeField, HideInInspector] 
+    public List<GridPositionInfo> chunkLayout = new List<GridPositionInfo>();
     
     public int Weight { get; set; }
 
@@ -49,8 +48,10 @@ public class Chunk : MonoBehaviour
     }
 }
 
+[Serializable]
 public class GridPositionInfo
 {
+    public Point point;
     public GameObject asset = null;
     public bool hasCollider = false;
 
