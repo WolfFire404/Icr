@@ -29,14 +29,11 @@ public class PlayerMovement : MonoBehaviour
     {
         get { return _grounded; }
     }
-
-<<<<<<< HEAD
+    
     bool facingRight = true;
 
     private bool grounded;
-=======
     public LayerMask CollisionMask {get { return collisionMask; }}
->>>>>>> c873124c6e777767abff33ae33c45bd5eaaf009e
     
     private void Move()
     {
@@ -63,11 +60,7 @@ public class PlayerMovement : MonoBehaviour
         if (_grounded)
             _velocity.y = 0;
         
-<<<<<<< HEAD
         if (Input.GetKeyDown(KeyCode.Space))
-=======
-        if (Input.GetKeyDown(KeyCode.Space) && _grounded)
->>>>>>> c873124c6e777767abff33ae33c45bd5eaaf009e
             Jump();    
         
         Move();
@@ -90,26 +83,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-<<<<<<< HEAD
         if (grounded)
-            velocity.y = JumpHeight;
+        {
+            _playerAnimation.SetAnimation("player_jump");
+            _velocity.y = JumpHeight;
+        }
         else
         {
             Vector3 direction = Vector2.right;
-            if (velocity.x < 0) direction *= -1;
-            var info = Physics2D.Raycast(transform.position, direction, velocity.x * Time.deltaTime, collisionMask);
+            if (_velocity.x < 0) direction *= -1;
+            var info = Physics2D.Raycast(transform.position, direction, _velocity.x * Time.deltaTime, collisionMask);
 
             if (info)
             {
                 Flip();
-                velocity.y = JumpHeight;
+                _velocity.y = JumpHeight;
             }
-            
+
         }
-=======
-        _velocity.y = JumpHeight;
-        _playerAnimation.SetAnimation("player_jump");
->>>>>>> c873124c6e777767abff33ae33c45bd5eaaf009e
     }
 
     private void AddGravity()
