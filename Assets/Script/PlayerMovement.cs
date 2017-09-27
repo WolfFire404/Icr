@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public const float StandardSpeed = 5;
     private const float JumpHeight = 10;
 
+    bool facingRight = true;
+
     private bool grounded;
     
     private void Move()
@@ -35,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         if (grounded)
             velocity.y = 0;
         
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        if (Input.GetKeyDown(KeyCode.Space))
             Jump();    
         
         Move();
@@ -43,7 +45,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        velocity.y = JumpHeight;
+        if (grounded)
+            velocity.y = JumpHeight;
+        else
+        {
+            Vector3 direction = Vector2.right;
+            if (velocity.x < 0) direction *= -1;
+            var info = Physics2D.Raycast(transform.position, direction, velocity.x * Time.deltaTime, collisionMask);
+
+            if (info)
+            {
+                Flip();
+                velocity.y = JumpHeight;
+            }
+            
+        }
     }
 
     private void AddGravity()
@@ -74,6 +90,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckGrounded()
     {
+        
+
         Vector2 bottomRight,
             bottomLeft = transform.position;
         bottomLeft.y -= 0.5f;
@@ -98,5 +116,17 @@ public class PlayerMovement : MonoBehaviour
         }
 
         grounded = false;
+    }
+
+    void Flip()
+    {
+
+        // Switch the way the player is labelled as facing
+        facingRight = !facingRight;
+
+        //Multiply the player's x local cale by -1
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 }
