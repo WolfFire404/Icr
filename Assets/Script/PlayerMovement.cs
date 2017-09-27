@@ -6,12 +6,15 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private LayerMask collisionMask;
+    [SerializeField] private PlayerAnimation _playerAnimation;
     private Vector2 _velocity = Vector2.zero;
-    private float _wantedSpeed;
+    private float _speedAddedPerSecond = 0.1f;
 
-    public float WantedSpeed
+    public float WantedSpeed { get; private set; }
+
+    public Vector2 Velocity
     {
-        get { return _wantedSpeed; }
+        get { return _velocity; }
     }
 
     private const float Gravity = 50;
@@ -20,7 +23,14 @@ public class PlayerMovement : MonoBehaviour
     private const float Acceleration = 20;
     private const float BoostSpeed = 0.5f;
 
-    private bool grounded;
+    private bool _grounded;
+    
+    public bool Grounded
+    {
+        get { return _grounded; }
+    }
+
+    public LayerMask CollisionMask {get { return collisionMask; }}
     
     private void Move()
     {
@@ -32,7 +42,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        _wantedSpeed = StandardSpeed;
+        WantedSpeed = StandardSpeed;
+        _playerAnimation = GetComponent<PlayerAnimation>();
     }
 
     private void Update()
@@ -41,14 +52,20 @@ public class PlayerMovement : MonoBehaviour
         AddGravity();
         SideCollision();
         CheckGrounded();
-
-        if (grounded)
+        AddSpeed();
+        
+        if (_grounded)
             _velocity.y = 0;
         
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        if (Input.GetKeyDown(KeyCode.Space) && _grounded)
             Jump();    
         
         Move();
+    }
+
+    private void AddSpeed()
+    {
+        WantedSpeed += _speedAddedPerSecond * Time.deltaTime;
     }
 
     private void AddHorizontalVelocity()
@@ -64,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         _velocity.y = JumpHeight;
+        _playerAnimation.SetAnimation("player_jump");
     }
 
     private void AddGravity()
@@ -113,10 +131,10 @@ public class PlayerMovement : MonoBehaviour
             
             // Move the player down.
             transform.position = new Vector3(transform.position.x, info.point.y + 0.5f, transform.position.z);
-            grounded = true;
+            _grounded = true;
             return;
         }
 
-        grounded = false;
+        _grounded = false;
     }
 }
