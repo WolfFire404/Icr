@@ -8,12 +8,16 @@ public class ChunkSpawner : MonoBehaviour
     private UnityEngine.Object[] _possibleChunks;
     private Chunk _lastChunk;
 
+    private Transform _playerPosition;
+    
+
     private const float InitialSpawnX = -10;
     
     private void Start()
     {
         _spawnedChunks = new Queue<Chunk>();
         _possibleChunks = Resources.LoadAll("Chunks/");
+        _playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
 
         for (var i = 0; i < 5; i++)
         {
@@ -23,9 +27,30 @@ public class ChunkSpawner : MonoBehaviour
 
     private void Update()
     {
-        
+        if (CheckDeleteChunk())
+        {
+            DeleteFirstChunk();
+            SpawnChunk();
+        }
     }
 
+    private bool CheckDeleteChunk()
+    {
+        if (_spawnedChunks.Count == 0 || _playerPosition == null) return false;
+
+        var chunk = _spawnedChunks.Peek();
+        float deletepos = chunk.transform.position.x + (chunk.EndPoint.x) * chunk.BlockSize.x + 
+                          (chunk.EndPoint.x - chunk.StartPoint.x) * chunk.BlockSize.x;
+        return _playerPosition.position.x > deletepos;
+    }
+
+    private void DeleteFirstChunk()
+    {
+        if (_spawnedChunks.Count == 0) return;
+        Destroy(_spawnedChunks.Dequeue().gameObject,0);
+    }
+
+    //todo: Add weighted random spawning.
     private void SpawnChunk()
     {
         var spawnLocation = _lastChunk == null ? new Vector3(InitialSpawnX, 0) : GetSpawnLocation(_lastChunk);
@@ -40,7 +65,8 @@ public class ChunkSpawner : MonoBehaviour
         origin.y *= -chunk.BlockSize.y;
 
         chunk = Instantiate(o, spawnLocation + origin, Quaternion.identity).GetComponent<Chunk>();
-        
+
+        _spawnedChunks.Enqueue(chunk);
         _lastChunk = chunk;
     }
 
@@ -52,4 +78,5 @@ public class ChunkSpawner : MonoBehaviour
 
         return location;
     }
+
 }

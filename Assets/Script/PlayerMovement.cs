@@ -6,45 +6,91 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private LayerMask collisionMask;
-    private Vector2 velocity = Vector2.zero;
-    private const float Gravity = 50;
-    public const float StandardSpeed = 5;
-    private const float JumpHeight = 10;
+    [SerializeField] private PlayerAnimation _playerAnimation;
+    private Vector2 _velocity = Vector2.zero;
+    private float _speedAddedPerSecond = 0.1f;
 
+    public float WantedSpeed { get; private set; }
+
+    public Vector2 Velocity
+    {
+        get { return _velocity; }
+    }
+
+    private const float Gravity = 50;
+    private const float StandardSpeed = 5;
+    private const float JumpHeight = 15;
+    private const float Acceleration = 20;
+    private const float BoostSpeed = 0.5f;
+
+    private bool _grounded;
+    
+    public bool Grounded
+    {
+        get { return _grounded; }
+    }
+
+<<<<<<< HEAD
     bool facingRight = true;
 
     private bool grounded;
+=======
+    public LayerMask CollisionMask {get { return collisionMask; }}
+>>>>>>> c873124c6e777767abff33ae33c45bd5eaaf009e
     
     private void Move()
     {
         var pos = transform.position;
-        pos.x += velocity.x * Time.deltaTime;
-        pos.y += velocity.y * Time.deltaTime;
+        pos.x += _velocity.x * Time.deltaTime;
+        pos.y += _velocity.y * Time.deltaTime;
         transform.position = pos;
     }
 
     private void Start()
     {
-        velocity.x = StandardSpeed;
+        WantedSpeed = StandardSpeed;
+        _playerAnimation = GetComponent<PlayerAnimation>();
     }
 
     private void Update()
     {
+        AddHorizontalVelocity();
         AddGravity();
         SideCollision();
         CheckGrounded();
-
-        if (grounded)
-            velocity.y = 0;
+        AddSpeed();
         
+        if (_grounded)
+            _velocity.y = 0;
+        
+<<<<<<< HEAD
         if (Input.GetKeyDown(KeyCode.Space))
+=======
+        if (Input.GetKeyDown(KeyCode.Space) && _grounded)
+>>>>>>> c873124c6e777767abff33ae33c45bd5eaaf009e
             Jump();    
         
         Move();
     }
 
+    private void AddSpeed()
+    {
+        WantedSpeed += _speedAddedPerSecond * Time.deltaTime;
+    }
+
+    private void AddHorizontalVelocity()
+    {
+        bool boost = Camera.main.transform.position.x > transform.position.x;
+        
+        _velocity.x += Acceleration * Time.deltaTime;
+        if (boost) _velocity.x += BoostSpeed * Time.deltaTime;
+        if (_velocity.x > WantedSpeed)
+            _velocity.x = boost ? WantedSpeed + BoostSpeed : WantedSpeed;
+    }
+
     private void Jump()
     {
+<<<<<<< HEAD
         if (grounded)
             velocity.y = JumpHeight;
         else
@@ -60,11 +106,15 @@ public class PlayerMovement : MonoBehaviour
             }
             
         }
+=======
+        _velocity.y = JumpHeight;
+        _playerAnimation.SetAnimation("player_jump");
+>>>>>>> c873124c6e777767abff33ae33c45bd5eaaf009e
     }
 
     private void AddGravity()
     {
-        velocity.y -= Gravity * Time.deltaTime;
+        _velocity.y -= Gravity * Time.deltaTime;
     }
 
     private void SideCollision()
@@ -78,12 +128,12 @@ public class PlayerMovement : MonoBehaviour
         for (var i = 0; i < 2; i++)
         {
             var info = Physics2D.Raycast(i == 0 ? bottomRight : topRight, Vector2.right,
-                velocity.x * Time.deltaTime, collisionMask);
+                _velocity.x * Time.deltaTime, collisionMask);
 
             if (!info) continue;
             
             transform.position = new Vector3(info.point.x - 0.5f, transform.position.y, transform.position.z);
-            velocity.x = 0;
+            _velocity.x = 0;
             return;
         }
     }
@@ -99,23 +149,23 @@ public class PlayerMovement : MonoBehaviour
         bottomRight = bottomLeft;
         bottomRight.x += 0.8f;
         
-        Debug.DrawLine(bottomRight, bottomRight + (Vector2.down * velocity.y * Time.deltaTime    ));
+        Debug.DrawLine(bottomRight, bottomRight + (Vector2.down * _velocity.y * Time.deltaTime    ));
 
         for (var i = 0; i < 2; i++)
         {
             var info = Physics2D.Raycast(i == 0 ? bottomRight : bottomLeft, Vector2.down,
-                velocity.y * Time.deltaTime * -1,
+                _velocity.y * Time.deltaTime * -1,
                 collisionMask);
             
             if (!info) continue;
             
             // Move the player down.
             transform.position = new Vector3(transform.position.x, info.point.y + 0.5f, transform.position.z);
-            grounded = true;
+            _grounded = true;
             return;
         }
 
-        grounded = false;
+        _grounded = false;
     }
 
     void Flip()

@@ -1,14 +1,27 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Chunk : MonoBehaviour
 {
+    [HideInInspector] public bool expanded = false;
+    
     public readonly Vector2 BlockSize = new Vector2(1f,1f);
+    
     [SerializeField] private Point _startPoint = new Point(0,0);
     [SerializeField] private Point _endPoint = new Point(20, 0);
 
+    [SerializeField, HideInInspector] 
+    public List<GridPositionInfo> chunkLayout = new List<GridPositionInfo>();
+    
+    public int Weight { get; set; }
+
+    private void Awake()
+    {
+        if (Weight < 0 || Weight > 100)
+            Weight = 1;
+    }
+    
     public Point StartPoint
     {
         get { return _startPoint; }
@@ -17,17 +30,6 @@ public class Chunk : MonoBehaviour
     public Point EndPoint
     {
         get { return _endPoint; }
-    }
-
-
-    private void Start()
-    {
-        
-    }
-
-    private void Update()
-    {
-        
     }
 
     private void OnDrawGizmos()
@@ -46,26 +48,15 @@ public class Chunk : MonoBehaviour
     }
 }
 
-[System.Serializable]
-public class Point
+[Serializable]
+public class GridPositionInfo
 {
-    public int x;
-    public int y;
+    public Point point;
+    public GameObject asset = null;
+    public bool hasCollider = false;
 
-    public Point(int x, int y)
+    public void SetAsset(GameObject asset)
     {
-        this.x = x;
-        this.y = y;
-    }
-    
-    
-    public static implicit operator Point(Vector2 vector2)
-    {
-        return new Point((int)vector2.x, (int)vector2.y);
-    }
-
-    public static implicit operator Vector2(Point point)
-    {
-        return new Vector2(point.x, point.y);
+        this.asset = asset;
     }
 }
