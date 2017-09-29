@@ -32,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
     
     bool facingRight = true;
 
-    private bool grounded;
     public LayerMask CollisionMask {get { return collisionMask; }}
     
     private void Move()
@@ -59,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (_grounded)
             _velocity.y = 0;
+        print("grounded");
         
         if (Input.GetKeyDown(KeyCode.Space))
             Jump();    
@@ -83,20 +83,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (grounded)
+        if (_grounded)
         {
-            _playerAnimation.SetAnimation("player_jump");
             _velocity.y = JumpHeight;
+            _playerAnimation.SetAnimation("player_jump");
         }
         else
         {
             Vector3 direction = Vector2.right;
             if (_velocity.x < 0) direction *= -1;
-            var info = Physics2D.Raycast(transform.position, direction, _velocity.x * Time.deltaTime, collisionMask);
+            var info = Physics2D.Raycast(transform.position, direction, _velocity.x, collisionMask);
+            print("wall detected");
 
             if (info)
             {
                 Flip();
+                _velocity.x = -WantedSpeed;
                 _velocity.y = JumpHeight;
             }
 
@@ -162,10 +164,8 @@ public class PlayerMovement : MonoBehaviour
     void Flip()
     {
 
-        // Switch the way the player is labelled as facing
         facingRight = !facingRight;
-
-        //Multiply the player's x local cale by -1
+        
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
