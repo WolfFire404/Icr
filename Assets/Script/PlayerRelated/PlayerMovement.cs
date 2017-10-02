@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerAnimation _playerAnimation;
     private Vector2 _velocity = Vector2.zero;
     private float _speedAddedPerSecond = 0.1f;
+    private float _lastWallJumpTime;
 
     public float WantedSpeed { get; private set; }
 
@@ -20,10 +22,11 @@ public class PlayerMovement : MonoBehaviour
     private const float Gravity = 50;
     private const float StandardSpeed = 5;
     private const float JumpHeight = 15;
-    private const float Acceleration = 20;
-    private const float BoostSpeed = 0.5f;
+    private const float Acceleration = 10;
+    private const float BoostSpeed = 1.5f;
 
     private bool _grounded;
+    private float _direction = 1;
     
     public bool Grounded
     {
@@ -58,8 +61,8 @@ public class PlayerMovement : MonoBehaviour
         
         if (_grounded)
             _velocity.y = 0;
-        print("grounded");
         
+        UpdateJump();
         if (Input.GetKeyDown(KeyCode.Space))
             Jump();    
         
@@ -73,12 +76,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void AddHorizontalVelocity()
     {
+        float sign = Mathf.Sign(_velocity.x);
         bool boost = Camera.main.transform.position.x > transform.position.x;
-        
-        _velocity.x += Acceleration * Time.deltaTime;
-        if (boost) _velocity.x += BoostSpeed * Time.deltaTime;
-        if (_velocity.x > WantedSpeed)
+
+
+        _velocity.x += Acceleration * Time.deltaTime * sign;
+        if (boost && sign == 1) _velocity.x += BoostSpeed * Time.deltaTime;
+        if (Mathf.Abs(_velocity.x) > WantedSpeed)
+        {
             _velocity.x = boost ? WantedSpeed + BoostSpeed : WantedSpeed;
+            _velocity.x *= sign;
+        }
+    }
+
+    private void UpdateJump()
+    {
+        var info = Physics2D.Raycast(transform.position, Vector2.right, _velocity.x * Time.deltaTime + Mathf.Sign(_velocity.x) * 1.2f, collisionMask);
+
+        if (!info) return;
+        
+        _lastWallJumpTime = Time.time;
     }
 
     private void Jump()
@@ -90,18 +107,11 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            Vector3 direction = Vector2.right;
-            if (_velocity.x < 0) direction *= -1;
-            var info = Physics2D.Raycast(transform.position, direction, _velocity.x, collisionMask);
-            print("wall detected");
-
-            if (info)
-            {
-                Flip();
-                _velocity.x = -WantedSpeed;
-                _velocity.y = JumpHeight;
-            }
-
+            if (Time.time > _lastWallJumpTime + 1.0f) return;
+            _velocity.x = WantedSpeed * 2 * -transform.localScale.x;
+            _velocity.y = JumpHeight;
+            _lastWallJumpTime = 0;
+            Flip();
         }
     }
 
@@ -112,8 +122,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void SideCollision()
     {
+        float sign = Mathf.Sign(_velocity.x);
         Vector2 bottomRight = transform.position;
-        bottomRight.x += 0.5f;
+        bottomRight.x += 0.5f * sign;
         bottomRight.y -= 0.4f;
         var topRight = bottomRight;
         topRight.y += 0.8f;
@@ -125,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (!info) continue;
             
-            transform.position = new Vector3(info.point.x - 0.5f, transform.position.y, transform.position.z);
+            transform.position = new Vector3(info.point.x - 0.5f * Mathf.Sign(_velocity.x), transform.position.y, transform.position.z);
             _velocity.x = 0;
             return;
         }
@@ -133,13 +144,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckGrounded()
     {
-        
-
-        Vector2 bottomRight,
-            bottomLeft = transform.position;
-        bottomLeft.y -= 0.5f;
+        Vector2 bottomLeft = transform.position;
+        bottomLeft.y += 0.5f * Mathf.Sign(_velocity.y);
         bottomLeft.x -= 0.4f;
-        bottomRight = bottomLeft;
+        var bottomRight = bottomLeft;
         bottomRight.x += 0.8f;
         
         Debug.DrawLine(bottomRight, bottomRight + (Vector2.down * _velocity.y * Time.deltaTime    ));
@@ -153,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
             if (!info) continue;
             
             // Move the player down.
-            transform.position = new Vector3(transform.position.x, info.point.y + 0.5f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, info.point.y + 0.5f * Mathf.Sign(_velocity.x), transform.position.z);
             _grounded = true;
             return;
         }
@@ -161,13 +169,12 @@ public class PlayerMovement : MonoBehaviour
         _grounded = false;
     }
 
-    void Flip()
+    private void Flip()
     {
-
         facingRight = !facingRight;
         
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
+        var theScale = transform.localScale;
+        theScale.x *= -1; 
         transform.localScale = theScale;
     }
 }
