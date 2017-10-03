@@ -16,7 +16,7 @@ public class PlayerAnimation : MonoBehaviour
 		get { return _lastClip; }
 	}
 	
-	private const float landDistance = 1f;
+	private const float landDistance = 2f;
 	
 	private void Start()
 	{
@@ -51,7 +51,6 @@ public class PlayerAnimation : MonoBehaviour
 		if(CurrentClip != null)
 			if (CurrentClip.name == clipname) return;
 		_lastClip = GetClip(clipname);
-		Debug.Log("playing " + _lastClip.name);
 		animation.Play("Base Layer." + clipname);
 	}
 

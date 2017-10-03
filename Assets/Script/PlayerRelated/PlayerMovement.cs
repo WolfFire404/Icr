@@ -19,9 +19,9 @@ public class PlayerMovement : MonoBehaviour
         get { return _velocity; }
     }
 
-    private const float Gravity = 50;
+    private const float Gravity = 60;
     private const float StandardSpeed = 5;
-    private const float JumpHeight = 15;
+    private const float JumpHeight = 17;
     private const float Acceleration = 10;
     private const float BoostSpeed = 1.5f;
 
@@ -90,7 +90,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateJump()
     {
-        var info = Physics2D.Raycast(transform.position, Vector2.right, _velocity.x * Time.deltaTime + Mathf.Sign(transform.localScale.x) * 1.2f, collisionMask);
+        Vector3 pos = transform.position;
+        pos.y -= 0.2f;
+        var info = Physics2D.Raycast(pos, Vector2.right, _velocity.x * Time.deltaTime + Mathf.Sign(transform.localScale.x) * 1.2f, collisionMask);
 
         _lastWallJumpTime = !info ? -1 : Time.time;
     }
