@@ -30,9 +30,6 @@ public class PlayerAnimation : MonoBehaviour
 	{
 		float dist = movement.Velocity.y + -landDistance;
 		if (dist > 0) dist = 0;
-
-		Debug.DrawLine(transform.position,
-			transform.position + Vector3.up * dist, Color.red);
 		
 		return (Physics2D.Raycast(transform.position, Vector2.up, 
 			       dist, movement.CollisionMask)

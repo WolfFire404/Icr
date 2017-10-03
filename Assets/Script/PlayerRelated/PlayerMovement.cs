@@ -61,8 +61,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (_grounded)
             _velocity.y = 0;
-        
-        UpdateJump();
+        else UpdateJump();
         if (Input.GetKeyDown(KeyCode.Space))
             Jump();    
         
@@ -76,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void AddHorizontalVelocity()
     {
-        float sign = Mathf.Sign(_velocity.x);
+        float sign = Mathf.Sign(transform.localScale.x);
         bool boost = Camera.main.transform.position.x > transform.position.x;
 
 
@@ -91,11 +90,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateJump()
     {
-        var info = Physics2D.Raycast(transform.position, Vector2.right, _velocity.x * Time.deltaTime + Mathf.Sign(_velocity.x) * 1.2f, collisionMask);
+        var info = Physics2D.Raycast(transform.position, Vector2.right, _velocity.x * Time.deltaTime + Mathf.Sign(transform.localScale.x) * 1.2f, collisionMask);
 
-        if (!info) return;
-        
-        _lastWallJumpTime = Time.time;
+        _lastWallJumpTime = !info ? -1 : Time.time;
     }
 
     private void Jump()
@@ -107,10 +104,10 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (Time.time > _lastWallJumpTime + 1.0f) return;
+            if (Time.time > _lastWallJumpTime + 1.5f || _lastWallJumpTime == -1) return;
             _velocity.x = WantedSpeed * 2 * -transform.localScale.x;
             _velocity.y = JumpHeight;
-            _lastWallJumpTime = 0;
+            _lastWallJumpTime = -1;
             Flip();
         }
     }
@@ -161,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
             if (!info) continue;
             
             // Move the player down.
-            transform.position = new Vector3(transform.position.x, info.point.y + 0.5f * Mathf.Sign(_velocity.x), transform.position.z);
+            transform.position = new Vector3(transform.position.x, info.point.y - 0.5f * Mathf.Sign(_velocity.y), transform.position.z);
             _grounded = true;
             return;
         }
