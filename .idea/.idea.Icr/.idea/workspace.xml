@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c64ba35-d953-4ac1-80ac-2567a47ba5cc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Prefabs/Resources/Chunks/chunk1.prefab" afterPath="$PROJECT_DIR$/Assets/Prefabs/Resources/Chunks/chunk1.prefab" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Scenes/ICr.unity" afterPath="$PROJECT_DIR$/Assets/Scenes/ICr.unity" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Script/PlayerRelated/PlayerAnimation.cs" afterPath="$PROJECT_DIR$/Assets/Script/PlayerRelated/PlayerAnimation.cs" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Script/Chunks/ChunkBuilderEditor.cs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Assets/Script/Chunks/ChunkBuilderEditor.cs.meta" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.idea.Icr/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/.idea.Icr/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Script/Chunks/ChunkSpawner.cs" afterPath="$PROJECT_DIR$/Assets/Script/Chunks/ChunkSpawner.cs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Assets/Script/PlayerRelated/PlayerMovement.cs" afterPath="$PROJECT_DIR$/Assets/Script/PlayerRelated/PlayerMovement.cs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,32 +30,203 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PlayerMovement.cs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PlayerMovement.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerRelated/PlayerMovement.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="722">
-              <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+            <state relative-caret-position="323">
+              <caret line="83" column="49" lean-forward="true" selection-start-line="83" selection-start-column="49" selection-end-line="83" selection-end-column="49" />
               <folding>
-                <marker date="1506946327597" expanded="true" signature="6:133" ph="..." />
-                <marker date="1506946327597" expanded="true" signature="178:4926" ph="{...}" />
-                <marker date="1506946327597" expanded="true" signature="508:554" ph="{...}" />
-                <marker date="1506946327597" expanded="true" signature="856:902" ph="{...}" />
-                <marker date="1506946327597" expanded="true" signature="1033:1211" ph="{...}" />
-                <marker date="1506946327597" expanded="true" signature="1237:1346" ph="{...}" />
-                <marker date="1506946327597" expanded="true" signature="1373:1692" ph="{...}" />
-                <marker date="1506946327597" expanded="true" signature="1721:1795" ph="{...}" />
-                <marker date="1506946327597" expanded="true" signature="1837:2300" ph="{...}" />
-                <marker date="1506946327597" expanded="true" signature="2167:2294" ph="{...}" />
-                <marker date="1506946327597" expanded="true" signature="2331:2558" ph="{...}" />
-                <marker date="1506946327597" expanded="true" signature="2583:3019" ph="{...}" />
-                <marker date="1506946327597" expanded="true" signature="2612:2728" ph="{...}" />
-                <marker date="1506946327597" expanded="true" signature="2741:3013" ph="{...}" />
-                <marker date="1506946327597" expanded="true" signature="3050:3111" ph="{...}" />
-                <marker date="1506946327597" expanded="true" signature="3145:3827" ph="{...}" />
-                <marker date="1506946327597" expanded="true" signature="3417:3821" ph="{...}" />
-                <marker date="1506946327597" expanded="true" signature="3861:4729" ph="{...}" />
-                <marker date="1506946327597" expanded="true" signature="4219:4695" ph="{...}" />
-                <marker date="1506946327597" expanded="true" signature="4754:4924" ph="{...}" />
+                <marker date="1507501880694" expanded="true" signature="6:133" ph="..." />
+                <marker date="1507501880694" expanded="true" signature="178:5235" ph="{...}" />
+                <marker date="1507501880694" expanded="true" signature="508:554" ph="{...}" />
+                <marker date="1507501880694" expanded="true" signature="856:902" ph="{...}" />
+                <marker date="1507501880694" expanded="true" signature="1033:1211" ph="{...}" />
+                <marker date="1507501880694" expanded="true" signature="1237:1346" ph="{...}" />
+                <marker date="1507501880694" expanded="true" signature="1373:1692" ph="{...}" />
+                <marker date="1507501880694" expanded="true" signature="1721:1795" ph="{...}" />
+                <marker date="1507501880694" expanded="true" signature="1837:2559" ph="{...}" />
+                <marker date="1507501880694" expanded="true" signature="2175:2553" ph="{...}" />
+                <marker date="1507501880694" expanded="true" signature="2445:2543" ph="/* _velocity.x = boost ? WantedSpeed + BoostSpeed : WantedSpeed; ... */" />
+                <marker date="1507501880694" expanded="true" signature="2590:2867" ph="{...}" />
+                <marker date="1507501880694" expanded="true" signature="2892:3328" ph="{...}" />
+                <marker date="1507501880694" expanded="true" signature="2921:3037" ph="{...}" />
+                <marker date="1507501880694" expanded="true" signature="3050:3322" ph="{...}" />
+                <marker date="1507501880694" expanded="true" signature="3359:3420" ph="{...}" />
+                <marker date="1507501880694" expanded="true" signature="3454:4136" ph="{...}" />
+                <marker date="1507501880694" expanded="true" signature="3726:4130" ph="{...}" />
+                <marker date="1507501880694" expanded="true" signature="4170:5038" ph="{...}" />
+                <marker date="1507501880694" expanded="true" signature="4528:5004" ph="{...}" />
+                <marker date="1507501880694" expanded="true" signature="5063:5233" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChunkSpawner.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Script/Chunks/ChunkSpawner.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+              <folding>
+                <marker date="1507500806004" expanded="false" signature="6:78" ph="..." />
+                <marker date="1507500806004" expanded="true" signature="121:2538" ph="{...}" />
+                <marker date="1507500806004" expanded="true" signature="421:767" ph="{...}" />
+                <marker date="1507500806004" expanded="true" signature="715:761" ph="{...}" />
+                <marker date="1507500806004" expanded="true" signature="794:916" ph="{...}" />
+                <marker date="1507500806004" expanded="true" signature="832:910" ph="{...}" />
+                <marker date="1507500806004" expanded="true" signature="958:1333" ph="{...}" />
+                <marker date="1507500806004" expanded="true" signature="1370:1485" ph="{...}" />
+                <marker date="1507500806004" expanded="true" signature="1558:1711" ph="{...}" />
+                <marker date="1507500806004" expanded="true" signature="1767:2270" ph="{...}" />
+                <marker date="1507500806004" expanded="true" signature="2328:2535" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Chunk.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Script/Chunks/Chunk.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1507499539864" expanded="false" signature="6:66" ph="..." />
+                <marker date="1507499539864" expanded="true" signature="102:1329" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="541:617" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="650:698" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="725:771" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="804:1327" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="1375:1560" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="1518:1558" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RandomSprite.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Script/Other/RandomSprite.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1507499539909" expanded="false" signature="6:78" ph="..." />
+                <marker date="1507499539909" expanded="true" signature="81:184" ph="/// Selects a random sprite to use when the object is created, or started. ... " />
+                <marker date="1507499539909" expanded="true" signature="269:614" ph="{...}" />
+                <marker date="1507499539909" expanded="true" signature="397:612" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScrollingCamera.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Script/Other/ScrollingCamera.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+              <folding>
+                <marker date="1507499539910" expanded="false" signature="6:78" ph="..." />
+                <marker date="1507499539910" expanded="true" signature="124:735" ph="{...}" />
+                <marker date="1507499539910" expanded="true" signature="238:474" ph="{...}" />
+                <marker date="1507499539910" expanded="true" signature="505:733" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CameraScript.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerRelated/CameraScript.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1507499539911" expanded="false" signature="6:78" ph="..." />
+                <marker date="1507499539911" expanded="true" signature="122:647" ph="{...}" />
+                <marker date="1507499539911" expanded="true" signature="292:467" ph="{...}" />
+                <marker date="1507499539911" expanded="true" signature="494:596" ph="{...}" />
+                <marker date="1507499539911" expanded="true" signature="618:645" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChunkBuilder.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Script/Chunks/ChunkBuilder.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5593">
+              <caret line="335" column="14" lean-forward="false" selection-start-line="335" selection-start-column="14" selection-end-line="335" selection-end-column="14" />
+              <folding>
+                <marker date="1507499539864" expanded="false" signature="6:157" ph="..." />
+                <marker date="1507499539864" expanded="true" signature="220:10746" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="604:723" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="669:717" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="754:834" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="867:1322" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="994:1316" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="1131:1225" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="1242:1306" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="1360:2106" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="2138:2447" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="2453:2529" ph="/// Literally does what the title says. ... " />
+                <marker date="1507499539864" expanded="true" signature="2562:3172" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="3213:3385" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="3446:4126" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="4188:4483" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="4545:4859" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="4947:5179" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="5185:5319" ph="/// Saves the current edited chunk. ... " />
+                <marker date="1507499539864" expanded="true" signature="5355:5985" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="5517:5770" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="6045:6276" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="6313:9191" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="7037:9185" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="7435:7883" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="7971:8372" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="8480:8592" ph="/* magic number .873871 is because it was always offset by that amount for some reason.. ... */" />
+                <marker date="1507499539864" expanded="true" signature="9294:9563" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="9358:9513" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="9661:9945" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="9750:9916" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="10005:10237" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="10275:10744" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="10367:10428" ph="{...}" />
+                <marker date="1507499539864" expanded="true" signature="10769:10805" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChunkBuilderEditor.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Script/Chunks/Editor/ChunkBuilderEditor.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3247">
+              <caret line="195" column="0" lean-forward="false" selection-start-line="195" selection-start-column="0" selection-end-line="196" selection-end-column="1" />
+              <folding>
+                <marker date="1507499539865" expanded="false" signature="6:103" ph="..." />
+                <marker date="1507499539865" expanded="true" signature="129:6692" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="229:6690" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="267:392" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="439:1195" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="674:898" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="945:1128" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="1248:1300" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="1354:2202" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="1418:2192" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="1649:2011" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="1908:1993" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="2048:2178" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="2237:2926" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="2451:2916" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="2987:4767" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="3154:4744" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="3507:3886" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="4236:4640" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="4831:5042" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="5124:5573" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="5627:6684" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="5730:5978" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="6160:6236" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="6430:6498" ph="{...}" />
+                <marker date="1507499539865" expanded="true" signature="6553:6622" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -63,35 +235,20 @@
       <file leaf-file-name="PlayerAnimation.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerRelated/PlayerAnimation.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="31" column="31" lean-forward="false" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+            <state relative-caret-position="1292">
+              <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
               <folding>
-                <marker date="1506944736119" expanded="false" signature="6:97" ph="..." />
-                <marker date="1506944736119" expanded="true" signature="143:1827" ph="{...}" />
-                <marker date="1506944736119" expanded="true" signature="334:368" ph="{...}" />
-                <marker date="1506944736119" expanded="true" signature="434:579" ph="{...}" />
-                <marker date="1506944736119" expanded="true" signature="611:841" ph="{...}" />
-                <marker date="1506944736119" expanded="true" signature="871:924" ph="{...}" />
-                <marker date="1506944736119" expanded="true" signature="955:1005" ph="{...}" />
-                <marker date="1506944736119" expanded="true" signature="1049:1245" ph="{...}" />
-                <marker date="1506944736119" expanded="true" signature="1283:1354" ph="{...}" />
-                <marker date="1506944736119" expanded="true" signature="1404:1478" ph="{...}" />
-                <marker date="1506944736119" expanded="true" signature="1502:1825" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScrollingCamera.cs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assets/Script/Other/ScrollingCamera.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-              <folding>
-                <marker date="1506947978969" expanded="false" signature="6:78" ph="..." />
-                <marker date="1506947978969" expanded="true" signature="124:735" ph="{...}" />
-                <marker date="1506947978969" expanded="true" signature="238:474" ph="{...}" />
-                <marker date="1506947978969" expanded="true" signature="505:733" ph="{...}" />
+                <marker date="1507499539912" expanded="false" signature="6:97" ph="..." />
+                <marker date="1507499539912" expanded="true" signature="143:1785" ph="{...}" />
+                <marker date="1507499539912" expanded="true" signature="334:368" ph="{...}" />
+                <marker date="1507499539912" expanded="true" signature="434:579" ph="{...}" />
+                <marker date="1507499539912" expanded="true" signature="611:841" ph="{...}" />
+                <marker date="1507499539912" expanded="true" signature="871:924" ph="{...}" />
+                <marker date="1507499539912" expanded="true" signature="955:1005" ph="{...}" />
+                <marker date="1507499539912" expanded="true" signature="1049:1203" ph="{...}" />
+                <marker date="1507499539912" expanded="true" signature="1241:1312" ph="{...}" />
+                <marker date="1507499539912" expanded="true" signature="1362:1436" ph="{...}" />
+                <marker date="1507499539912" expanded="true" signature="1460:1783" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -110,11 +267,17 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Script/PlayerRelated/PlayerAnimation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Chunks/ChunkBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Other/ScrollingCamera.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Chunks/Chunk.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Other/RandomSprite.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/Unity3DRider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Chunks/ChunkSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/PlayerRelated/CameraScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/PlayerRelated/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Chunks/Point.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Script/Other/ScrollingCamera.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/Unity3DRider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/PlayerRelated/PlayerAnimation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Script/Chunks/Editor/ChunkBuilderEditor.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -130,8 +293,9 @@
         <option value="$PROJECT_DIR$/Assets/Script/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/PlayerAnimation.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/PlayerRelated/PlayerAnimation.cs" />
-        <option value="$PROJECT_DIR$/Assets/Script/PlayerRelated/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Script/Other/ScrollingCamera.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/Chunks/ChunkSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Script/PlayerRelated/PlayerMovement.cs" />
       </list>
     </option>
   </component>
@@ -145,7 +309,7 @@
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -163,7 +327,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="SolutionExplorer">
         <subPane>
           <PATH>
@@ -172,133 +335,7 @@
               <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Icr (2 projects)" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assembly-CSharp-Editor-firstpass" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assets" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Plugins" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Editor" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JetBrains" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Icr (2 projects)" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assembly-CSharp-Editor-firstpass" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Icr (2 projects)" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assembly-CSharp" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assets" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Script" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PlayerRelated" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Icr (2 projects)" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assembly-CSharp" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assets" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Script" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Other" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Icr (2 projects)" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assembly-CSharp" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assets" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Script" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Chunks" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Icr (2 projects)" />
-              <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Assembly-CSharp" />
+              <option name="myItemId" value="Icr (3 projects)" />
               <option name="myItemType" value="com.jetbrains.rider.projectView.solutionExplorer.SolutionExplorerNodeRider" />
             </PATH_ELEMENT>
           </PATH>
@@ -306,6 +343,7 @@
         <option name="show-file-system" value="false" />
         <option name="show-all-items" value="false" />
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -415,11 +453,13 @@
       <workItem from="1506197656828" duration="6273000" />
       <workItem from="1506247168057" duration="4503000" />
       <workItem from="1506939280169" duration="5563000" />
+      <workItem from="1507499739150" duration="616000" />
+      <workItem from="1507500396463" duration="1785000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62267000" />
+    <option name="totallyTimeSpent" value="64668000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -431,27 +471,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28837952" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296582" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15031983" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15351813" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -469,84 +510,12 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerMovement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerAnimation.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1062">
-          <caret line="62" column="16" lean-forward="false" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerMovement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="11" column="39" lean-forward="false" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/ChunkSpawner.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="4" column="7" lean-forward="false" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerMovement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="11" column="39" lean-forward="false" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunk.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="52" lean-forward="false" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/ChunkSpawner.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="36" column="5" lean-forward="false" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerMovement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunk.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerMovement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerMovement.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunk.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/ChunkSpawner.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerMovement.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunk.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerMovement.cs" />
     <entry file="file://$PROJECT_DIR$/Assembly-CSharp.csproj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -561,304 +530,260 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunk.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="3" column="18" lean-forward="true" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/ChunkSpawner.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="27" column="10" lean-forward="false" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerMovement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="59" column="38" lean-forward="true" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/Editor/ChunkBuilderEditor.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/ChunkBuilder.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1819">
-          <caret line="107" column="8" lean-forward="false" selection-start-line="107" selection-start-column="8" selection-end-line="107" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunk.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunk.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/ChunkBuilder.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="80" column="67" lean-forward="false" selection-start-line="80" selection-start-column="67" selection-end-line="80" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/Editor/ChunkBuilderEditor.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/Editor/ChunkBuilderEditor.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/ChunkBuilder.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunk.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerMovement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerMovement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="11" column="39" lean-forward="false" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunk.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="52" lean-forward="false" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/ChunkSpawner.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="36" column="5" lean-forward="false" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerMovement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunk.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerMovement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunk.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/ChunkSpawner.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerMovement.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Editor/ChunkBuilderEditor.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/ChunkBuilder.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunk.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunk.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/ChunkBuilder.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Editor/ChunkBuilderEditor.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Editor/ChunkBuilderEditor.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/ChunkBuilder.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunk.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerMovement.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerMovement.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunk.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/ChunkSpawner.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerMovement.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunk.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerMovement.cs" />
     <entry file="file://$PROJECT_DIR$/Assembly-CSharp.csproj">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/Unity3DRider.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="320" column="0" lean-forward="false" selection-start-line="320" selection-start-column="0" selection-end-line="320" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1ABFBF84-528A-423E-BA2F-4832AE4E28C0/7f/feb69345/Editor.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/Script/RandomSprite.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/ScrollingCamera.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/Point.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunk.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="48" column="1" lean-forward="false" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/ChunkBuilderCurrentInfo.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/Editor/ChunkBuilderEditor.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="188" column="53" lean-forward="false" selection-start-line="188" selection-start-column="53" selection-end-line="188" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/ChunkBuilder.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="266" column="23" lean-forward="false" selection-start-line="266" selection-start-column="23" selection-end-line="266" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/ChunkSpawner.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="44" column="5" lean-forward="false" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Script/RandomSprite.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/ScrollingCamera.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Point.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunk.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/ChunkBuilderCurrentInfo.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Editor/ChunkBuilderEditor.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/ChunkBuilder.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/ChunkSpawner.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Script/LegacyAnimationSprite.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerMovement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="19" column="36" lean-forward="false" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerAnimation.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="62" column="16" lean-forward="false" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerMovement.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerAnimation.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/Script/Chunks/Point.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/Unity3DRider.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2241">
+          <caret line="132" column="81" lean-forward="true" selection-start-line="132" selection-start-column="81" selection-end-line="132" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunks/Editor/ChunkBuilderEditor.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3247">
+          <caret line="195" column="0" lean-forward="false" selection-start-line="195" selection-start-column="0" selection-end-line="196" selection-end-column="1" />
           <folding>
-            <marker date="1506935157011" expanded="false" signature="6:32" ph="..." />
-            <marker date="1506935157011" expanded="true" signature="74:711" ph="{...}" />
-            <marker date="1506935157011" expanded="true" signature="210:262" ph="{...}" />
-            <marker date="1506935157011" expanded="true" signature="299:356" ph="{...}" />
-            <marker date="1506935157011" expanded="true" signature="420:490" ph="{...}" />
-            <marker date="1506935157011" expanded="true" signature="548:606" ph="{...}" />
-            <marker date="1506935157011" expanded="true" signature="645:709" ph="{...}" />
+            <marker date="1507499539865" expanded="false" signature="6:103" ph="..." />
+            <marker date="1507499539865" expanded="true" signature="129:6692" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="229:6690" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="267:392" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="439:1195" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="674:898" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="945:1128" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="1248:1300" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="1354:2202" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="1418:2192" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="1649:2011" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="1908:1993" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="2048:2178" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="2237:2926" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="2451:2916" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="2987:4767" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="3154:4744" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="3507:3886" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="4236:4640" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="4831:5042" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="5124:5573" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="5627:6684" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="5730:5978" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="6160:6236" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="6430:6498" ph="{...}" />
+            <marker date="1507499539865" expanded="true" signature="6553:6622" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerRelated/PlayerMovement.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunks/ChunkBuilder.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+        <state relative-caret-position="5593">
+          <caret line="335" column="14" lean-forward="false" selection-start-line="335" selection-start-column="14" selection-end-line="335" selection-end-column="14" />
           <folding>
-            <marker date="1506946327597" expanded="true" signature="6:133" ph="..." />
-            <marker date="1506946327597" expanded="true" signature="178:4926" ph="{...}" />
-            <marker date="1506946327597" expanded="true" signature="508:554" ph="{...}" />
-            <marker date="1506946327597" expanded="true" signature="856:902" ph="{...}" />
-            <marker date="1506946327597" expanded="true" signature="1033:1211" ph="{...}" />
-            <marker date="1506946327597" expanded="true" signature="1237:1346" ph="{...}" />
-            <marker date="1506946327597" expanded="true" signature="1373:1692" ph="{...}" />
-            <marker date="1506946327597" expanded="true" signature="1721:1795" ph="{...}" />
-            <marker date="1506946327597" expanded="true" signature="1837:2300" ph="{...}" />
-            <marker date="1506946327597" expanded="true" signature="2167:2294" ph="{...}" />
-            <marker date="1506946327597" expanded="true" signature="2331:2558" ph="{...}" />
-            <marker date="1506946327597" expanded="true" signature="2583:3019" ph="{...}" />
-            <marker date="1506946327597" expanded="true" signature="2612:2728" ph="{...}" />
-            <marker date="1506946327597" expanded="true" signature="2741:3013" ph="{...}" />
-            <marker date="1506946327597" expanded="true" signature="3050:3111" ph="{...}" />
-            <marker date="1506946327597" expanded="true" signature="3145:3827" ph="{...}" />
-            <marker date="1506946327597" expanded="true" signature="3417:3821" ph="{...}" />
-            <marker date="1506946327597" expanded="true" signature="3861:4729" ph="{...}" />
-            <marker date="1506946327597" expanded="true" signature="4219:4695" ph="{...}" />
-            <marker date="1506946327597" expanded="true" signature="4754:4924" ph="{...}" />
+            <marker date="1507499539864" expanded="false" signature="6:157" ph="..." />
+            <marker date="1507499539864" expanded="true" signature="220:10746" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="604:723" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="669:717" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="754:834" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="867:1322" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="994:1316" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="1131:1225" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="1242:1306" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="1360:2106" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="2138:2447" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="2453:2529" ph="/// Literally does what the title says. ... " />
+            <marker date="1507499539864" expanded="true" signature="2562:3172" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="3213:3385" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="3446:4126" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="4188:4483" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="4545:4859" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="4947:5179" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="5185:5319" ph="/// Saves the current edited chunk. ... " />
+            <marker date="1507499539864" expanded="true" signature="5355:5985" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="5517:5770" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="6045:6276" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="6313:9191" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="7037:9185" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="7435:7883" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="7971:8372" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="8480:8592" ph="/* magic number .873871 is because it was always offset by that amount for some reason.. ... */" />
+            <marker date="1507499539864" expanded="true" signature="9294:9563" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="9358:9513" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="9661:9945" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="9750:9916" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="10005:10237" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="10275:10744" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="10367:10428" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="10769:10805" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerRelated/PlayerAnimation.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Other/RandomSprite.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="31" column="31" lean-forward="false" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1506944736119" expanded="false" signature="6:97" ph="..." />
-            <marker date="1506944736119" expanded="true" signature="143:1827" ph="{...}" />
-            <marker date="1506944736119" expanded="true" signature="334:368" ph="{...}" />
-            <marker date="1506944736119" expanded="true" signature="434:579" ph="{...}" />
-            <marker date="1506944736119" expanded="true" signature="611:841" ph="{...}" />
-            <marker date="1506944736119" expanded="true" signature="871:924" ph="{...}" />
-            <marker date="1506944736119" expanded="true" signature="955:1005" ph="{...}" />
-            <marker date="1506944736119" expanded="true" signature="1049:1245" ph="{...}" />
-            <marker date="1506944736119" expanded="true" signature="1283:1354" ph="{...}" />
-            <marker date="1506944736119" expanded="true" signature="1404:1478" ph="{...}" />
-            <marker date="1506944736119" expanded="true" signature="1502:1825" ph="{...}" />
+            <marker date="1507499539909" expanded="false" signature="6:78" ph="..." />
+            <marker date="1507499539909" expanded="true" signature="81:184" ph="/// Selects a random sprite to use when the object is created, or started. ... " />
+            <marker date="1507499539909" expanded="true" signature="269:614" ph="{...}" />
+            <marker date="1507499539909" expanded="true" signature="397:612" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Script/Other/ScrollingCamera.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        <state relative-caret-position="340">
+          <caret line="22" column="5" lean-forward="false" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
           <folding>
-            <marker date="1506947978969" expanded="false" signature="6:78" ph="..." />
-            <marker date="1506947978969" expanded="true" signature="124:735" ph="{...}" />
-            <marker date="1506947978969" expanded="true" signature="238:474" ph="{...}" />
-            <marker date="1506947978969" expanded="true" signature="505:733" ph="{...}" />
+            <marker date="1507499539910" expanded="false" signature="6:78" ph="..." />
+            <marker date="1507499539910" expanded="true" signature="124:735" ph="{...}" />
+            <marker date="1507499539910" expanded="true" signature="238:474" ph="{...}" />
+            <marker date="1507499539910" expanded="true" signature="505:733" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerRelated/CameraScript.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1507499539911" expanded="false" signature="6:78" ph="..." />
+            <marker date="1507499539911" expanded="true" signature="122:647" ph="{...}" />
+            <marker date="1507499539911" expanded="true" signature="292:467" ph="{...}" />
+            <marker date="1507499539911" expanded="true" signature="494:596" ph="{...}" />
+            <marker date="1507499539911" expanded="true" signature="618:645" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerRelated/PlayerAnimation.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding>
+            <marker date="1507499539912" expanded="false" signature="6:97" ph="..." />
+            <marker date="1507499539912" expanded="true" signature="143:1785" ph="{...}" />
+            <marker date="1507499539912" expanded="true" signature="334:368" ph="{...}" />
+            <marker date="1507499539912" expanded="true" signature="434:579" ph="{...}" />
+            <marker date="1507499539912" expanded="true" signature="611:841" ph="{...}" />
+            <marker date="1507499539912" expanded="true" signature="871:924" ph="{...}" />
+            <marker date="1507499539912" expanded="true" signature="955:1005" ph="{...}" />
+            <marker date="1507499539912" expanded="true" signature="1049:1203" ph="{...}" />
+            <marker date="1507499539912" expanded="true" signature="1241:1312" ph="{...}" />
+            <marker date="1507499539912" expanded="true" signature="1362:1436" ph="{...}" />
+            <marker date="1507499539912" expanded="true" signature="1460:1783" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunks/Chunk.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1507499539864" expanded="false" signature="6:66" ph="..." />
+            <marker date="1507499539864" expanded="true" signature="102:1329" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="541:617" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="650:698" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="725:771" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="804:1327" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="1375:1560" ph="{...}" />
+            <marker date="1507499539864" expanded="true" signature="1518:1558" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Script/Chunks/ChunkSpawner.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+          <folding>
+            <marker date="1507500806004" expanded="false" signature="6:78" ph="..." />
+            <marker date="1507500806004" expanded="true" signature="121:2538" ph="{...}" />
+            <marker date="1507500806004" expanded="true" signature="421:767" ph="{...}" />
+            <marker date="1507500806004" expanded="true" signature="715:761" ph="{...}" />
+            <marker date="1507500806004" expanded="true" signature="794:916" ph="{...}" />
+            <marker date="1507500806004" expanded="true" signature="832:910" ph="{...}" />
+            <marker date="1507500806004" expanded="true" signature="958:1333" ph="{...}" />
+            <marker date="1507500806004" expanded="true" signature="1370:1485" ph="{...}" />
+            <marker date="1507500806004" expanded="true" signature="1558:1711" ph="{...}" />
+            <marker date="1507500806004" expanded="true" signature="1767:2270" ph="{...}" />
+            <marker date="1507500806004" expanded="true" signature="2328:2535" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Script/PlayerRelated/PlayerMovement.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="83" column="49" lean-forward="true" selection-start-line="83" selection-start-column="49" selection-end-line="83" selection-end-column="49" />
+          <folding>
+            <marker date="1507501880694" expanded="true" signature="6:133" ph="..." />
+            <marker date="1507501880694" expanded="true" signature="178:5235" ph="{...}" />
+            <marker date="1507501880694" expanded="true" signature="508:554" ph="{...}" />
+            <marker date="1507501880694" expanded="true" signature="856:902" ph="{...}" />
+            <marker date="1507501880694" expanded="true" signature="1033:1211" ph="{...}" />
+            <marker date="1507501880694" expanded="true" signature="1237:1346" ph="{...}" />
+            <marker date="1507501880694" expanded="true" signature="1373:1692" ph="{...}" />
+            <marker date="1507501880694" expanded="true" signature="1721:1795" ph="{...}" />
+            <marker date="1507501880694" expanded="true" signature="1837:2559" ph="{...}" />
+            <marker date="1507501880694" expanded="true" signature="2175:2553" ph="{...}" />
+            <marker date="1507501880694" expanded="true" signature="2445:2543" ph="/* _velocity.x = boost ? WantedSpeed + BoostSpeed : WantedSpeed; ... */" />
+            <marker date="1507501880694" expanded="true" signature="2590:2867" ph="{...}" />
+            <marker date="1507501880694" expanded="true" signature="2892:3328" ph="{...}" />
+            <marker date="1507501880694" expanded="true" signature="2921:3037" ph="{...}" />
+            <marker date="1507501880694" expanded="true" signature="3050:3322" ph="{...}" />
+            <marker date="1507501880694" expanded="true" signature="3359:3420" ph="{...}" />
+            <marker date="1507501880694" expanded="true" signature="3454:4136" ph="{...}" />
+            <marker date="1507501880694" expanded="true" signature="3726:4130" ph="{...}" />
+            <marker date="1507501880694" expanded="true" signature="4170:5038" ph="{...}" />
+            <marker date="1507501880694" expanded="true" signature="4528:5004" ph="{...}" />
+            <marker date="1507501880694" expanded="true" signature="5063:5233" ph="{...}" />
           </folding>
         </state>
       </provider>

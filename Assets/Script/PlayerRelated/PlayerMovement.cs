@@ -77,14 +77,20 @@ public class PlayerMovement : MonoBehaviour
     {
         float sign = Mathf.Sign(transform.localScale.x);
         bool boost = Camera.main.transform.position.x > transform.position.x;
-
+        
 
         _velocity.x += Acceleration * Time.deltaTime * sign;
         if (boost && sign == 1) _velocity.x += BoostSpeed * Time.deltaTime;
         if (Mathf.Abs(_velocity.x) > WantedSpeed)
         {
-            _velocity.x = boost ? WantedSpeed + BoostSpeed : WantedSpeed;
-            _velocity.x *= sign;
+            float ss = Mathf.Sign(_velocity.x);
+            float deaccel = boost ? 0 : 5f;
+            _velocity.x -= deaccel * ss * Time.deltaTime;
+            if (_velocity.x < WantedSpeed * ss)
+                _velocity.x = WantedSpeed * ss;
+
+            //_velocity.x = boost ? WantedSpeed + BoostSpeed : WantedSpeed;
+            //_velocity.x *= sign;
         }
     }
 

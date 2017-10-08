@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChunkSpawner : MonoBehaviour
 {
+    [SerializeField] private GameObject _beginnerChunk;
     private Queue<Chunk> _spawnedChunks;
     private UnityEngine.Object[] _possibleChunks;
     private Chunk _lastChunk;
@@ -19,6 +20,7 @@ public class ChunkSpawner : MonoBehaviour
         _possibleChunks = Resources.LoadAll("Chunks/");
         _playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
 
+        if (_beginnerChunk != null) InstantiateChunk(_beginnerChunk);
         for (var i = 0; i < 5; i++)
         {
             SpawnChunk();
@@ -33,6 +35,7 @@ public class ChunkSpawner : MonoBehaviour
             SpawnChunk();
         }
     }
+    
 
     private bool CheckDeleteChunk()
     {
@@ -53,18 +56,21 @@ public class ChunkSpawner : MonoBehaviour
     //todo: Add weighted random spawning.
     private void SpawnChunk()
     {
-        var spawnLocation = _lastChunk == null ? new Vector3(InitialSpawnX, 0) : GetSpawnLocation(_lastChunk);
-        var o = _possibleChunks[Random.Range(0, _possibleChunks.Length)] as GameObject;
         
-        if (o == null) return;
+        var o = _possibleChunks[Random.Range(0, _possibleChunks.Length)] as GameObject;
+        if (o != null) InstantiateChunk(o);
+    }
 
-        var chunk = o.GetComponent<Chunk>();
+    private void InstantiateChunk(GameObject chunkobj)
+    {
+        var spawnLocation = _lastChunk == null ? new Vector3(InitialSpawnX, 0) : GetSpawnLocation(_lastChunk);
+        var chunk = chunkobj.GetComponent<Chunk>();
         
         Vector3 origin = (Vector2)chunk.StartPoint;
         origin.x = (origin.x + 1) * chunk.BlockSize.x;
         origin.y *= -chunk.BlockSize.y;
 
-        chunk = Instantiate(o, spawnLocation + origin, Quaternion.identity).GetComponent<Chunk>();
+        chunk = Instantiate(chunk, spawnLocation + origin, Quaternion.identity).GetComponent<Chunk>();
 
         _spawnedChunks.Enqueue(chunk);
         _lastChunk = chunk;
