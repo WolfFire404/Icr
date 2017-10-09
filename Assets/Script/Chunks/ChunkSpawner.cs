@@ -10,7 +10,7 @@ public class ChunkSpawner : MonoBehaviour
     private Chunk _lastChunk;
 
     private Transform _playerPosition;
-    
+    int _lastChunkIndex = -1;
 
     private const float InitialSpawnX = -10;
     
@@ -56,9 +56,17 @@ public class ChunkSpawner : MonoBehaviour
     //todo: Add weighted random spawning.
     private void SpawnChunk()
     {
-        
-        var o = _possibleChunks[Random.Range(0, _possibleChunks.Length)] as GameObject;
-        if (o != null) InstantiateChunk(o);
+        var spawnLocation = _lastChunk == null ? new Vector3(InitialSpawnX, 0) : GetSpawnLocation(_lastChunk);
+
+        int chink;
+        do
+        {
+            chink = Random.Range(0, _possibleChunks.Length);
+        }
+        while (_lastChunkIndex == chink);
+        _lastChunkIndex = chink;
+        var o = _possibleChunks[chink] as GameObject;
+        if (o == null) return;
     }
 
     private void InstantiateChunk(GameObject chunkobj)
