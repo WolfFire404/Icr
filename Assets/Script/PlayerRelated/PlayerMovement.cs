@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _velocity = Vector2.zero;
     private float _speedAddedPerSecond = 0.1f;
     private float _lastWallJumpTime;
+    private PlayerDead _playerDead;
 
     public float WantedSpeed { get; private set; }
 
@@ -23,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private const float StandardSpeed = 5;
     private const float JumpHeight = 17;
     private const float Acceleration = 10;
-    private const float BoostSpeed = 1.5f;
+    private const float BoostSpeed = 0.5f;
 
     private bool _grounded;
     private float _direction = 1;
@@ -49,10 +50,13 @@ public class PlayerMovement : MonoBehaviour
     {
         WantedSpeed = StandardSpeed;
         _playerAnimation = GetComponent<PlayerAnimation>();
+        _playerDead = GetComponent<PlayerDead>();
     }
 
     private void Update()
     {
+        if (_playerDead.Dead) return;
+        
         AddHorizontalVelocity();
         AddGravity();
         SideCollision();
@@ -77,20 +81,19 @@ public class PlayerMovement : MonoBehaviour
     {
         float sign = Mathf.Sign(transform.localScale.x);
         bool boost = Camera.main.transform.position.x > transform.position.x;
-        
+        bool goback = Camera.main.transform.position.x < transform.position.x;
 
         _velocity.x += Acceleration * Time.deltaTime * sign;
-        if (boost && sign == 1) _velocity.x += BoostSpeed * Time.deltaTime;
+        if (boost && sign == 1 && _velocity.x <= WantedSpeed + BoostSpeed) _velocity.x = WantedSpeed + BoostSpeed;
         if (Mathf.Abs(_velocity.x) > WantedSpeed)
         {
-            float ss = Mathf.Sign(_velocity.x);
-            float deaccel = boost ? 0 : 5f;
-            _velocity.x -= deaccel * ss * Time.deltaTime;
+            float ss = Mathf.Sign(_velocity.x );
+            float deaccel = goback ? Acceleration : 0;
+            _velocity.x -= deaccel * -ss * Time.deltaTime;
+            if (goback)
+                _velocity.x -= deaccel * 20 * ss * Time.deltaTime;
             if (_velocity.x < WantedSpeed * ss)
                 _velocity.x = WantedSpeed * ss;
-
-            //_velocity.x = boost ? WantedSpeed + BoostSpeed : WantedSpeed;
-            //_velocity.x *= sign;
         }
     }
 
@@ -113,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             if (Time.time > _lastWallJumpTime + 1.5f || _lastWallJumpTime == -1) return;
-            _velocity.x = WantedSpeed * 2 * -transform.localScale.x;
+            _velocity.x = WantedSpeed * 1.2f * -transform.localScale.x;
             _velocity.y = JumpHeight;
             _lastWallJumpTime = -1;
             Flip();

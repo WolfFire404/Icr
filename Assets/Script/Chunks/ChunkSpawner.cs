@@ -66,7 +66,7 @@ public class ChunkSpawner : MonoBehaviour
         while (_lastChunkIndex == chink);
         _lastChunkIndex = chink;
         var o = _possibleChunks[chink] as GameObject;
-        if (o == null) return;
+        if (o != null) InstantiateChunk(o); 
     }
 
     private void InstantiateChunk(GameObject chunkobj)
