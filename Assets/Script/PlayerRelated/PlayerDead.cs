@@ -5,9 +5,19 @@ using UnityEngine;
 
 public class PlayerDead : MonoBehaviour
 {
-
+    [SerializeField] private AudioClip oof;
     public bool Dead { get; private set; }
+    private AudioSource _audioSource;
 
+    void Awake()
+    {
+        _audioSource = gameObject.AddComponent<AudioSource>();
+        _audioSource.loop = _audioSource.playOnAwake = false;
+        _audioSource.clip = oof;
+        _audioSource.pitch = Random.Range(0.01f, 1.2f);
+        _audioSource.volume = 100;
+
+    }
     
     void Update()
     {
@@ -15,6 +25,7 @@ public class PlayerDead : MonoBehaviour
         {
             StartCoroutine(GameOver());
             Dead = true;
+            _audioSource.Play();
         }
     }
 

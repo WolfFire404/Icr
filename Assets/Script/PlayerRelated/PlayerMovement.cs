@@ -20,9 +20,9 @@ public class PlayerMovement : MonoBehaviour
         get { return _velocity; }
     }
 
-    private const float Gravity = 60;
+    private const float Gravity = 70;
     private const float StandardSpeed = 5;
-    private const float JumpHeight = 17;
+    private const float JumpHeight = 13;
     private const float Acceleration = 10;
     private const float BoostSpeed = 0.2f;
 
@@ -110,7 +110,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_grounded)
         {
-            _velocity.y = JumpHeight;
+            //_velocity.y = JumpHeight;
+            StartCoroutine(VariableJump());
             _playerAnimation.SetAnimation("player_jump");
         }
         else
@@ -120,6 +121,17 @@ public class PlayerMovement : MonoBehaviour
             _velocity.y = JumpHeight;
             _lastWallJumpTime = -1;
             Flip();
+        }
+    }
+    
+    private IEnumerator VariableJump()
+    {
+        float jumpTime = 0;
+        while(Input.GetKey(KeyCode.Space) && jumpTime < 0.2f)
+        {
+            _velocity.y = JumpHeight;
+            jumpTime += Time.deltaTime;
+            yield return null;
         }
     }
 
