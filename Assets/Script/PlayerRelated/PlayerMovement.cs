@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private const float StandardSpeed = 5;
     private const float JumpHeight = 17;
     private const float Acceleration = 10;
-    private const float BoostSpeed = 0.5f;
+    private const float BoostSpeed = 0.2f;
 
     private bool _grounded;
     private float _direction = 1;
@@ -85,11 +85,11 @@ public class PlayerMovement : MonoBehaviour
 
         _velocity.x += Acceleration * Time.deltaTime * sign;
         if (boost && sign == 1 && _velocity.x <= WantedSpeed + BoostSpeed) _velocity.x = WantedSpeed + BoostSpeed;
-        if (Mathf.Abs(_velocity.x) > WantedSpeed)
+        else if (Mathf.Abs(_velocity.x) > WantedSpeed && !boost)
         {
             float ss = Mathf.Sign(_velocity.x );
             float deaccel = goback ? Acceleration : 0;
-            _velocity.x -= deaccel * -ss * Time.deltaTime;
+            _velocity.x -= deaccel * ss * Time.deltaTime;
             if (goback)
                 _velocity.x -= deaccel * 20 * ss * Time.deltaTime;
             if (_velocity.x < WantedSpeed * ss)
@@ -116,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             if (Time.time > _lastWallJumpTime + 1.5f || _lastWallJumpTime == -1) return;
-            _velocity.x = WantedSpeed * 1.2f * -transform.localScale.x;
+            _velocity.x = WantedSpeed * -transform.localScale.x + 1.2f * -transform.localScale.x;
             _velocity.y = JumpHeight;
             _lastWallJumpTime = -1;
             Flip();

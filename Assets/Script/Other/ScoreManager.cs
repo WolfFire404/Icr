@@ -8,7 +8,7 @@ public class ScoreManager : MonoBehaviour {
     public Text scoreText;
     public Text highScoreText;
 
-    public float scoreCount;
+    static public float scoreCount;
     public float highScoreCount;
 
     public float pointsPerSecond;
@@ -17,6 +17,7 @@ public class ScoreManager : MonoBehaviour {
 
     void Start ()
     {
+        scoreCount = 0;
 		if (PlayerPrefs.HasKey ("HighScore"))
         {
             highScoreCount = PlayerPrefs.GetFloat("HighScore");
@@ -35,7 +36,7 @@ public class ScoreManager : MonoBehaviour {
             highScoreCount = scoreCount;
             PlayerPrefs.SetFloat("HighScore", highScoreCount);
         }
-
+            
         scoreText.text = "Score: " + Mathf.Round (scoreCount);
         highScoreText.text = "highScore: " + Mathf.Round (highScoreCount);
 	}

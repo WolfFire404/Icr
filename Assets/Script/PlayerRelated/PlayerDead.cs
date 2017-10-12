@@ -28,6 +28,7 @@ public class PlayerDead : MonoBehaviour
     IEnumerator GameOver()
     {
         yield return new WaitForSeconds(1f);
+        PlayerPrefs.SetFloat("CurrentScore", Mathf.Round(ScoreManager.scoreCount));
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver");
     }
 }
